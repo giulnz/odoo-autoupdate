@@ -7,7 +7,7 @@ sudo /bin/systemctl stop odoo.service
 sudo -u odoo source /opt/odoo/cron/updateOCA.sh
 
 # Aggiorno lista addons su conf odoo
-source /opt/odoo/cron/upd_conf_add_folder.sh
+sudo /opt/odoo/cron/upd_conf_add_folder.sh
 
 # Aggiorno Odoo (UTENTE ODOO)
 sudo -u odoo source /opt/odoo/cron/update14.sh
