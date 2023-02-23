@@ -17,7 +17,7 @@ log_file="$LOGFILE$(date +"%Y-%m-%d_%H-%M-%S").log"
 exec > >(tee -i $log_file)
 
 # Import the configuration file
-. odoo-autoupdate.conf
+. autoupdate.conf
 
 # Stop the odoo service (as super user)
 sudo /bin/systemctl stop $ODOO_SERVICE.service
