@@ -31,10 +31,6 @@ var_list=("LOGFILE" "ODOO_PATH" "ODOO_SERVICE" "ODOO_USER" "ODOO_CONF" "OCA_FOLD
         fi
     done
 
-# test variabili
-echo test variabili
-su - $ODOO_USER -s /bin/bash $dir/test_var.sh
-
 # Stop the odoo service (as super user)
 sudo /bin/systemctl stop $ODOO_SERVICE.service
 
