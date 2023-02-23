@@ -1,4 +1,14 @@
 #!/bin/bash
+################################################################################
+# Script for update odoo and all the addons contained in OCA.
+# Author: Grando Giulio
+#-------------------------------------------------------------------------------
+# git clone https://github.com/ser-tec/odoo-autoupdate.git
+# makes the file executable:
+# sudo chmod +x odoo-install.sh
+# Execute the script to update Odoo:
+# ./odoo-autoupdate.sh
+################################################################################
 
 current_dir=$(pwd)
 
