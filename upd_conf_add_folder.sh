@@ -1,32 +1,31 @@
 #!/bin/bash
 
-# Percorso di destinazione del file
-output_file="/etc/odoo/odoo.conf"
+# Setting the field separator
+IFS=','
 
-# Lista delle cartelle
-# puo essere scritto anche così 
-variable_folders=$(ls -d /opt/odoo/addons/{OCA,custom}/*/ 2>/dev/null)
-fix_folders="/opt/odoo/14.0/addons,/opt/odoo/14.0/addons/custom"
+# Folder list
+variable_folders=$(ls -d $VAR_FOLDERS/*/ 2>/dev/null)
+fix_folders="${FIX_FOLDERS[*]}"
 
-# Controllo degli errori
+# Error checking
 if [ $? -ne 0 ]; then
-  echo "Errore durante la generazione della lista delle cartelle" >&2
+  echo "Error generating folder list" >&2
   exit 1
 fi
 
-# Formatta la lista delle cartelle
+# Format the folder list
 formatted_folders=$(echo "$fix_folders,$variable_folders" | tr '\n' ',')
 
-# Rimuove l'ultima virgola
+# Remove the last comma
 formatted_folders=${formatted_folders%,}
 
-# Aggiorna il file specificato in output_file
-sed -i "s|addons_path = .*|addons_path = $formatted_folders|" "$output_file"
+# Update the file specified in output_file
+sed -i "s|addons_path = .*|addons_path = $formatted_folders|" "$ODOO_CONF"
 
-# Controllo degli errori
+# Error checking
 if [ $? -ne 0 ]; then
-  echo "Errore durante la scrittura del file" >&2
+  echo "Error writing file" >&2
   exit 1
 fi
 
-echo "La lista delle cartelle è stata scritta correttamente nel file $output_file"
+echo "The folder list was successfully written to the file $output_file"
