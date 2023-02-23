@@ -10,10 +10,11 @@
 # ./odoo_autoupdate.sh
 ################################################################################
 
-#current_dir=$(pwd)
-#echo $current_dir 
-
 dir=$(dirname $0)
+current_dir=$(pwd)
+echo $dir
+echo $current_dir 
+
 
 # Import the configuration file
 . autoupdate.conf
