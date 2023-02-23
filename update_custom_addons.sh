@@ -1,7 +1,5 @@
 #!/bin/bash
 
-CUSTOM_FOLDER=("/opt/odoo/14.0/addons" "/opt/odoo/14.0/addons/custom")
-
 # loop through all folders in $CUSTOM_FOLDER
 for folder in "${CUSTOM_FOLDER[@]}"; do
     echo "Updating folder: $folder"
