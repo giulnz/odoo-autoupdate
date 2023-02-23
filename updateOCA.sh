@@ -3,7 +3,7 @@
 cd /opt/odoo/addons
 gh repo list OCA --limit 500 | while read -r repo _; do
   if [ "$repo" == "OCA/OCB" ] || [[ "$repo" =~ ^OCA/l10n.* ]] && [ "$repo" != "OCA/l10n-italy" ]; then
-    echo "Salto $repo"
+    echo "Skip $repo"
     continue
   fi
   echo "$repo"
