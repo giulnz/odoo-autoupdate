@@ -25,11 +25,14 @@ sudo /bin/systemctl stop $ODOO_SERVICE.service
 # Update OCA (AS ODOO USER)
 su - $ODOO_USER -s /bin/bash $current_dir/updateOCA.sh
 
-# Aggiorno lista addons su conf odoo (as super user )
-sudo $current_dir/upd_conf_add_folder.sh
+# Update CUSTOM_FOLDER (AS ODOO USER)
+su - $ODOO_USER -s /bin/bash $current_dir/update_custom_addons.sh
 
 # Update ODOO (AS ODOO USER)
 su - $ODOO_USER -s /bin/bash $current_dir/update_odoo.sh
+
+# Aggiorno lista addons su conf odoo (as super user )
+sudo $current_dir/upd_conf_add_folder.sh
 
 # Update DB (AS ODOO USER)
 su - $ODOO_USER -s /bin/bash $current_dir/updateDB.sh
