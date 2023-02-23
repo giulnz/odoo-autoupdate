@@ -1,5 +1,11 @@
 #!/bin/bash
 
+dir=$(dirname $0)
+cd $dir
+
+# Import the configuration file
+. autoupdate.conf
+
 cd "$OCA_FOLDER/.."
 gh repo list OCA --limit $LIMIT | while read -r repo _; do
   if $EXCLUDE_REPO; then
