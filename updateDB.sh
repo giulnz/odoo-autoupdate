@@ -12,8 +12,6 @@ if [ -n "$VENV" ]; then
   source "$VENV/bin/activate"
 fi 
 
-echo "provo a stampare la variabile formatted_folders:$formatted_folders"
-
 if [ -n "$REQUIREMENTS" ]; then
   for dir in $(echo "$formatted_folders" | tr ',' '\n'); do
     if [ -d "$dir" ]; then
