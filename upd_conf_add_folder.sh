@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Verify that the input variables are set
+if [[ -z "$VAR_FOLDERS" || -z "$FIX_FOLDERS" || -z "$ODOO_CONF" ]]; then
+  echo "Error: one or more input variables not set" >&2
+  exit 1
+fi
+
 # Setting the field separator
 IFS=','
 
@@ -28,4 +34,4 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-echo "The folder list was successfully written to the file $output_file"
+echo "The folder list was successfully written to the file $ODOO_CONF"
