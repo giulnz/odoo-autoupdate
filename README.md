@@ -19,10 +19,10 @@ WARNING :
 
 ## Installation
 
-Define your own parameters in autoupdate.conf
 ```
+$ git clone https://github.com/ser-tec/odoo-autoupdate.git
 $ cd /path-odoo-autoupdate
-$ chmod u+x *.sh
+$ sudo chmod +x *.sh
 ```
 
 ## Settings
