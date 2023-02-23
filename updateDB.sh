@@ -21,6 +21,7 @@ else
         pip3 install -r "$dir/requirements.txt"
       fi
     fi
+  done
 fi
 
 $ODOO_PATH/odoo-bin -c "$ODOO_CONF" -d "$DB_NAME" -u all --stop-after-init
