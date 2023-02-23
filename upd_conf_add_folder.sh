@@ -4,7 +4,9 @@
 IFS=','
 
 # Folder list
-variable_folders=$(ls -d $VAR_FOLDERS/*/ 2>/dev/null)
+# combine OCA_FOLDER and CUSTOM_FOLDERS into ALL_FOLDERS
+var_folders=("$OCA_FOLDER" "${CUSTOM_FOLDERS[@]}")
+variable_folders=$(ls -d $var_folders/*/ 2>/dev/null)
 fix_folders="${FIX_FOLDERS[*]}"
 
 # Error checking
