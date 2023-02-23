@@ -1,23 +1,30 @@
 #!/bin/bash
 
-cd /opt/odoo
+if [ -n "$VENV" ]; then
+  cd "$VENV/.."
+  # Get into python virtualization
+  source "$VENV/bin/activate"
+fi 
 
-# Crea un file di log e lo apre per la scrittura
-log_file="log/log_updateDB$(date +"%Y-%m-%d_%H-%M-%S").txt"
-exec > >(tee -i $log_file)
-
-# Entra nella virtualizzazione python
-source venv/bin/activate
-
-# Verifica se l'esecuzione del comando precedente ha restituito un errore
-if [ $? -eq 0 ]; then
-  # Se il comando ha restituito 0 (successo), esegue il comando successivo
-  pip3 install -r addons/OCA/l10n-italy/requirements.txt
-  pip3 install -r 14.0/requirements.txt
-  14.0/odoo-bin -c /etc/odoo/odoo.conf -d database14 -u all --stop-after-init
-  deactivate
+if [ -n "$REQUIREMENTS" ]; then
+  for dir in $(echo "$formatted_folders" | tr ',' '\n'); do
+    if [ -d "$dir" ]; then
+      if [ -f "$dir/requirements.txt" ]; then
+        pip3 install -r "$dir/requirements.txt"
+      fi
+    fi
+  done
 else
-  # Se il comando ha restituito un valore diverso da 0 (errore), visualizza un messaggio di errore
-  echo "Errore nell'esecuzione del comando 'source venv/bin/activate'"
+  for dir in $(echo "$PATH" | tr ',' '\n'); do
+    if [ -d "$dir" ]; then
+      if [ -f "$dir/requirements.txt" ]; then
+        pip3 install -r "$dir/requirements.txt"
+      fi
+    fi
 fi
 
+$ODOO_PATH/odoo-bin -c "$ODOO_CONF" -d "$DB_NAME" -u all --stop-after-init
+
+if [ -n "$VENV" ]; then
+  deactivate
+fi
