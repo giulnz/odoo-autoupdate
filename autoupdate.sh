@@ -11,6 +11,7 @@
 ################################################################################
 
 current_dir=$(pwd)
+echo $current_dir 
 
 # Create a log file and open it for writing
 log_file="$LOGFILE$(date +"%Y-%m-%d_%H-%M-%S").log"
