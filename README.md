@@ -74,5 +74,5 @@ Help for scheduling https://crontab.guru/
 
 ## Manual Execution
 ```
-$ ./path-odoo-autoupdate/odoo_autoupdate.sh 
+$ ./path-odoo-autoupdate/autoupdate.sh 
 ```
