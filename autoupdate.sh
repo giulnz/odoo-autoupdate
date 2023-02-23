@@ -10,8 +10,10 @@
 # ./odoo_autoupdate.sh
 ################################################################################
 
-current_dir=$(pwd)
-echo $current_dir 
+#current_dir=$(pwd)
+#echo $current_dir 
+
+dir=$(dirname $0)
 
 # Create a log file and open it for writing
 log_file="$LOGFILE$(date +"%Y-%m-%d_%H-%M-%S").log"
@@ -35,19 +37,19 @@ var_list=("LOGFILE" "ODOO_PATH" "ODOO_SERVICE" "ODOO_USER" "ODOO_CONF" "OCA_FOLD
 sudo /bin/systemctl stop $ODOO_SERVICE.service
 
 # Update OCA (AS ODOO USER)
-su - $ODOO_USER -s /bin/bash $current_dir/updateOCA.sh
+su - $ODOO_USER -s /bin/bash $dir/updateOCA.sh
 
 # Update CUSTOM_FOLDER (AS ODOO USER)
-su - $ODOO_USER -s /bin/bash $current_dir/update_custom_addons.sh
+su - $ODOO_USER -s /bin/bash $dir/update_custom_addons.sh
 
 # Update ODOO (AS ODOO USER)
-su - $ODOO_USER -s /bin/bash $current_dir/update_odoo.sh
+su - $ODOO_USER -s /bin/bash $dir/update_odoo.sh
 
 # Aggiorno lista addons su conf odoo (as super user )
-sudo $current_dir/upd_conf_add_folder.sh
+sudo $dir/upd_conf_add_folder.sh
 
 # Update DB (AS ODOO USER)
-su - $ODOO_USER -s /bin/bash $current_dir/updateDB.sh
+su - $ODOO_USER -s /bin/bash $dir/updateDB.sh
 
 # Riavvio il servizio odoo (as super user )
 sudo /bin/systemctl start $ODOO_SERVICE.service
