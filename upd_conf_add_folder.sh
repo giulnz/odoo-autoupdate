@@ -30,6 +30,9 @@ formatted_folders=${formatted_folders%,}
 # Update the file specified in output_file
 sed -i "s|addons_path = .*|addons_path = $formatted_folders|" "$ODOO_CONF"
 
+# Write formatted_folders on autoupdate.conf becouse after it will be called by updateDB.sh 
+sed -i "s|formatted_folders=.*|formatted_folders=$formatted_folders|" "autoupdate.conf"
+
 # Error checking
 if [ $? -ne 0 ]; then
   echo "Error writing file" >&2
