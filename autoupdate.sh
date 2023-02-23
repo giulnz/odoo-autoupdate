@@ -19,6 +19,17 @@ exec > >(tee -i $log_file)
 # Import the configuration file
 . autoupdate.conf
 
+var_list=("LOGFILE" "ODOO_PATH" "ODOO_SERVICE" "ODOO_USER" "ODOO_CONF" "OCA_FOLDER" "CUSTOM_FOLDERS" "FIX_FOLDERS" "ODOO_VERS" "DB_NAME")
+
+    for var in "${var_list[@]}"
+    do
+        if [ -z "${!var}" ]
+        then
+            echo "La variabile $var non è stata impostata. Si prega di impostare la variabile prima di eseguire lo script."
+            exit 1
+        fi
+    done
+
 # Stop the odoo service (as super user)
 sudo /bin/systemctl stop $ODOO_SERVICE.service
 
