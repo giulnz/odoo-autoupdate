@@ -1,5 +1,5 @@
 #!/bin/bash
 
-cd $ODOO_PATH/14.0
+cd $ODOO_PATH
 git checkout $ODOO_VERS
 git pull
