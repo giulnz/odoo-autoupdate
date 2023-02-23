@@ -11,10 +11,7 @@
 ################################################################################
 
 dir=$(dirname $0)
-current_dir=$(pwd)
-echo $dir
-echo $current_dir 
-
+cd $dir
 
 # Import the configuration file
 . autoupdate.conf
