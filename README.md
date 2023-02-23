@@ -1,6 +1,6 @@
 # Odoo-autoupdate
 
-This collection of scripts allows you to update odoo and all the addons contained in OCA.
+These collection of scripts allows you to update odoo and all the addons contained in OCA.
 
 ```grouper.sh``` -> it runs the other scripts in the right order. It Stop the odoo service during the update process and restart after finished<br/>
 ```updateOCA.sh``` -> it download the new modules contained in the OCA repository and update the existing ones skipping those specified in the exclude_folder parameter.<br/>
