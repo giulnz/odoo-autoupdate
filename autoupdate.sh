@@ -5,7 +5,7 @@
 #-------------------------------------------------------------------------------
 # git clone https://github.com/ser-tec/odoo-autoupdate.git
 # makes the file executable:
-# sudo chmod +x odoo_autoupdate.sh
+# sudo chmod +x autoupdate.sh
 # Execute the script to update Odoo:
 # ./odoo_autoupdate.sh
 ################################################################################
