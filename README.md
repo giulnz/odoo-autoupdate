@@ -7,7 +7,7 @@ These collection of scripts allows you to update odoo and all the addons contain
 ```upd_conf_add_folder.sh``` -> it writes the list of addons in the odoo configuration file <br/>
 ```update_odoo.sh``` -> it update odoo<br/>
 ```updateDB.sh``` -> it install dependencies and update the database<br/>
-
+```update_custom_addons.sh``` -> it update all subfolders in the folders define in $CUSTOM_FOLDERS
 WARNING : 
 * DO NOT USE IN PRODUCTION DEPLOYMENT
 * THE SCRIPT DOES NOT MAKE A BACKUP
@@ -45,7 +45,7 @@ ODOO_CONF="/etc/odoo/odoo.conf"
 #
 OCA_FOLDER="/opt/odoo/addons/OCA"
 #
-VAR_FOLDERS=("/opt/odoo/addons/OCA" "/opt/odoo/addons/custom")
+CUSTOM_FOLDERS=("/opt/odoo/addons/custom")
 #
 FIX_FOLDERS=("/opt/odoo/14.0/addons" "/opt/odoo/14.0/addons/custom")
 # if REQUIREMENTS is empty it will use var+fix folder path to search for requirement, else put desired folder path as "/path1,/path2,/path3"
