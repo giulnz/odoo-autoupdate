@@ -31,6 +31,35 @@ Define your own parameters in autoupdate.conf
 ```
 $ nano autoupdate.conf
 ```
+```
+# where do you want to save the log file, do not put the .extension
+LOGFILE="/var/log/odoo/odoo-autoupdate"
+# absolute path to your odoo folder
+ODOO_PATH="/opt/odoo/14.0"
+# 
+ODOO_SERVICE="odoo"
+# the user that execute odoo
+ODOO_USER="odoo"
+# the path to odoo configuration settings
+ODOO_CONF="/etc/odoo/odoo.conf"
+#
+OCA_FOLDER="/opt/odoo/addons/OCA"
+#
+VAR_FOLDERS=("/opt/odoo/addons/OCA" "/opt/odoo/addons/custom")
+#
+FIX_FOLDERS=("/opt/odoo/14.0/addons" "/opt/odoo/14.0/addons/custom")
+# if REQUIREMENTS is empty it will use var+fix folder path to search for requirement, else put desired folder path as "/path1,/path2,/path3"
+REQUIREMENTS=""
+#
+EXCLUDE_REPO="[ "$repo" == "OCA/OCB" ] || [[ "$repo" =~ ^OCA/l10n.* ]] && [ "$repo" != "OCA/l10n-italy" ]"
+#
+ODOO_VERS="14.0"
+# set VNENV empty if you don't use a virtual environment
+#
+VENV="/opt/odoo/venv"
+#
+DB_NAME="database14"
+```
 
 ## Scheduling
 * Edit cron:
