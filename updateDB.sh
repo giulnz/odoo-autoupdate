@@ -1,5 +1,11 @@
 #!/bin/bash
 
+dir=$(dirname $0)
+cd $dir
+
+# Import the configuration file
+. autoupdate.conf
+
 if [ -n "$VENV" ]; then
   cd "$VENV/.."
   # Get into python virtualization
