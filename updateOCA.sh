@@ -1,7 +1,6 @@
 #!/bin/bash
 
-cd $OCA_FOLDER
-cd ..
+cd "$OCA_FOLDER/.."
 gh repo list OCA --limit 500 | while read -r repo _; do
   if $EXCLUDE_REPO; then
     echo "Skip $repo"
