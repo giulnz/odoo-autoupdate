@@ -15,7 +15,7 @@ if [ -n "$REQUIREMENTS" ]; then
     fi
   done
 else
-  for dir in $(echo "$PATH" | tr ',' '\n'); do
+  for dir in $(echo "$REQUIREMENTS" | tr ',' '\n'); do
     if [ -d "$dir" ]; then
       if [ -f "$dir/requirements.txt" ]; then
         pip3 install -r "$dir/requirements.txt"
