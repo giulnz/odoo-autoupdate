@@ -35,18 +35,23 @@ var_list=("LOGFILE" "ODOO_PATH" "ODOO_SERVICE" "ODOO_USER" "ODOO_CONF" "OCA_FOLD
 sudo /bin/systemctl stop $ODOO_SERVICE.service
 
 # Update OCA (AS ODOO USER)
+echo Update OCA
 su - $ODOO_USER -s /bin/bash $dir/updateOCA.sh
 
 # Update CUSTOM_FOLDER (AS ODOO USER)
+echo Update CUSTOM_FOLDER
 su - $ODOO_USER -s /bin/bash $dir/update_custom_addons.sh
 
 # Update ODOO (AS ODOO USER)
+echo Update ODOO
 su - $ODOO_USER -s /bin/bash $dir/update_odoo.sh
 
-# Aggiorno lista addons su conf odoo (as super user )
+# Update addons list on conf odoo (as super user )
+echo Update addons list
 sudo $dir/upd_conf_add_folder.sh
 
 # Update DB (AS ODOO USER)
+echo Update DB
 su - $ODOO_USER -s /bin/bash $dir/updateDB.sh
 
 # Riavvio il servizio odoo (as super user )
