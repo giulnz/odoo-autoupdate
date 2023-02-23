@@ -10,7 +10,7 @@ su - odoo -s /bin/bash /opt/odoo/cron/updateOCA.sh
 sudo /opt/odoo/cron/upd_conf_add_folder.sh
 
 # Aggiorno Odoo (UTENTE ODOO)
-su - odoo -s /bin/bash /opt/odoo/cron/update14.sh
+su - odoo -s /bin/bash /opt/odoo/cron/update_odoo.sh
 
 # Aggiorno DB (UTENTE ODOO)
 su - odoo -s /bin/bash /opt/odoo/cron/updateDB.sh
