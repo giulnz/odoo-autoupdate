@@ -8,9 +8,22 @@ These collection of scripts allows you to update odoo and all the addons contain
 ```update_odoo.sh``` -> it update odoo<br/>
 ```updateDB.sh``` -> it install dependencies and update the database<br/>
 
+WARNING : 
+* DO NOT USE IT IF YOU ARE IN PRODUCTION DEPLOYMENT
+* THE SCRIPT DOES NOT MAKE A BACKUP
+
+
 ## Prerequisites 
 * ubuntu
 * odoo installed from source
+
+## Installation
+
+Define your own parameters in autoupdate.conf
+```
+$ cd /path-odoo-autoupdate
+$ chmod u+x *.sh
+```
 
 ## Settings
 
@@ -27,5 +40,10 @@ $ sudo crontab -e
 * Add the following entries. Save and exit.<br/> 
 Help for scheduling https://crontab.guru/
 ```
-00 0 * * * /opt/odoo/odoo-autoupdate/grouper.sh
+00 0 * * * /path-odoo-autoupdate/grouper.sh
+```
+
+## Manual Execution
+```
+$ ./path-odoo-autoupdate/grouper.sh 
 ```
