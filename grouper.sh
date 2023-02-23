@@ -7,7 +7,7 @@
 sudo /bin/systemctl stop $ODOO_SERVICE.service
 
 # Aggiorno OCA (UTENTE ODOO)
-su - $ODOO_USER -s /bin/bash $ODOO_PATH//odoo-autoupdate/updateOCA.sh
+su - $ODOO_USER -s /bin/bash $ODOO_PATH/odoo-autoupdate/updateOCA.sh
 
 # Aggiorno lista addons su conf odoo
 sudo $ODOO_PATH/odoo-autoupdate/upd_conf_add_folder.sh
