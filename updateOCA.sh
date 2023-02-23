@@ -8,7 +8,7 @@ cd $dir
 
 cd "$OCA_FOLDER/.."
 gh repo list OCA --limit $LIMIT | while read -r repo _; do
-  if $EXCLUDE_REPO; then
+  if eval "$EXCLUDE_REPO"; then
     echo "Skip $repo"
     continue
   fi
