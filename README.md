@@ -9,7 +9,7 @@ These collection of scripts allows you to update odoo and all the addons contain
 ```updateDB.sh``` -> it install dependencies and update the database<br/>
 
 WARNING : 
-* DO NOT USE IT IF YOU ARE IN PRODUCTION DEPLOYMENT
+* DO NOT USE IN PRODUCTION DEPLOYMENT
 * THE SCRIPT DOES NOT MAKE A BACKUP
 
 
