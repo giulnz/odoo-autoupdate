@@ -21,8 +21,8 @@ WARNING :
 
 ```
 $ git clone https://github.com/ser-tec/odoo-autoupdate.git
-$ cd /path-odoo-autoupdate
-$ sudo chmod +x *.sh
+$ cd odoo-autoupdate
+$ sudo chmod u+x *.sh
 ```
 
 ## Settings
