@@ -8,7 +8,7 @@ This collection of scripts allows you to update odoo and all the addons containe
 ```update_odoo.sh``` -> it update odoo<br/>
 ```updateDB.sh``` -> it install dependencies and update the database<br/>
 
-## prerequisites 
+## Prerequisites 
 * ubuntu
 * odoo installed from source
 
