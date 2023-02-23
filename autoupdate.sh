@@ -15,12 +15,12 @@
 
 dir=$(dirname $0)
 
+# Import the configuration file
+. autoupdate.conf
+
 # Create a log file and open it for writing
 log_file="$LOGFILE$(date +"%Y-%m-%d_%H-%M-%S").log"
 exec > >(tee -i $log_file)
-
-# Import the configuration file
-. autoupdate.conf
 
 var_list=("LOGFILE" "ODOO_PATH" "ODOO_SERVICE" "ODOO_USER" "ODOO_CONF" "OCA_FOLDER" "CUSTOM_FOLDERS" "FIX_FOLDERS" "ODOO_VERS" "DB_NAME")
 
