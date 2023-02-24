@@ -11,12 +11,12 @@ cd $dir
 cd "$VENV/.."
 echo $PWD
 
+formatted_folders="$formatted_folders,$ODOO_PATH"
+
 if [ -n "$VENV" ]; then
   # Get into python virtualization
   source "$VENV/bin/activate"
 fi 
-
-formatted_folders="$formatted_folders,$ODOO_PATH"
 
 if [ -n "$REQUIREMENTS" ]; then
   echo REQUIREMENTS non vuoto $REQUIREMENTS
