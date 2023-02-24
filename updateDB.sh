@@ -13,6 +13,7 @@ formatted_folders="$formatted_folders,$ODOO_PATH"
 if [ -n "$VENV" ]; then
   # Get into python virtualization
   source "$VENV/bin/activate"
+  echo virtual enviroment attivo
 fi 
 
 if [ -n "$REQUIREMENTS" ]; then
