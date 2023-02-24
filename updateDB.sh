@@ -15,7 +15,7 @@ if [ -n "$VENV" ]; then
 fi 
 
 if [ -n "$REQUIREMENTS" ]; then
-  echo REQUIREMENTS vuoto $REQUIREMENTS
+  echo REQUIREMENTS non vuoto $REQUIREMENTS
   for dir in $(echo "$REQUIREMENTS" | tr ',' '\n'); do
     if [ -d "$dir" ]; then
       if [ -f "$dir/requirements.txt" ]; then
@@ -30,7 +30,7 @@ if [ -n "$REQUIREMENTS" ]; then
     fi
   done
 else
-  echo REQUIREMENTS non vuoto $REQUIREMENTS
+  echo REQUIREMENTS vuoto $REQUIREMENTS
   for dir in $(echo "$formatted_folders" | tr ',' '\n'); do
     if [ -d "$dir" ]; then
       if [ -f "$dir/requirements.txt" ]; then
