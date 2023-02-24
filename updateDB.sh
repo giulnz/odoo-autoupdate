@@ -14,6 +14,8 @@ if [ -n "$VENV" ]; then
   source "$VENV/bin/activate"
 fi 
 
+formatted_folders="$formatted_folders,$ODOO_PATH"
+
 if [ -n "$REQUIREMENTS" ]; then
   echo REQUIREMENTS non vuoto $REQUIREMENTS
   for dir in $(echo "$REQUIREMENTS" | tr ',' '\n'); do
@@ -46,7 +48,7 @@ else
   done
 fi
 
-$ODOO_PATH/odoo-bin -c "$ODOO_CONF" -d "$DB_NAME" -u all --stop-after-init
+# $ODOO_PATH/odoo-bin -c "$ODOO_CONF" -d "$DB_NAME" -u all --stop-after-init
 
 if [ -n "$VENV" ]; then
   deactivate
