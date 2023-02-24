@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -x  # Attiva la stampa delle operazioni
-
 dir=$(dirname $0)
 cd $dir
 
@@ -9,7 +7,6 @@ cd $dir
 . autoupdate.conf
 
 cd "$VENV/.."
-echo $PWD
 
 formatted_folders="$formatted_folders,$ODOO_PATH"
 
@@ -50,7 +47,7 @@ else
   done
 fi
 
-# $ODOO_PATH/odoo-bin -c "$ODOO_CONF" -d "$DB_NAME" -u all --stop-after-init
+$ODOO_PATH/odoo-bin -c "$ODOO_CONF" -d "$DB_NAME" -u all --stop-after-init
 
 if [ -n "$VENV" ]; then
   deactivate
