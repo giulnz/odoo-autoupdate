@@ -39,35 +39,35 @@ else
 fi
 
 # Update OCA (AS ODOO USER)
-echo ####################
+echo --------------------
 echo Start Update OCA
-echo ####################
+echo --------------------
 su - $ODOO_USER -s /bin/bash $dir/updateOCA.sh
 
 # Update CUSTOM_FOLDER (AS ODOO USER)
-echo ####################
+echo --------------------
 echo Start Update CUSTOM_FOLDER
-echo ####################
+echo --------------------
 su - $ODOO_USER -s /bin/bash $dir/update_custom_addons.sh
 
 # Update ODOO (AS ODOO USER)
-echo ####################
+echo --------------------
 echo Start Update ODOO
-echo ####################
+echo --------------------
 su - $ODOO_USER -s /bin/bash $dir/update_odoo.sh
 
 # Update addons list on conf odoo (as super user )
-echo ####################
+echo --------------------
 echo Start Update addons list
-echo ####################
+echo --------------------
 sudo $dir/upd_conf_add_folder.sh
 
 # Update DB (AS ODOO USER)
-echo ####################
+echo --------------------
 echo Start Update DB
-echo ####################
+echo --------------------
 su - $ODOO_USER -s /bin/bash $dir/updateDB.sh
-echo ####################
+echo --------------------
 
 # Riavvio il servizio odoo (as super user )
 if sudo /bin/systemctl start $ODOO_SERVICE.service; then
