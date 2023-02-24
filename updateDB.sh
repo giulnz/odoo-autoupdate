@@ -15,8 +15,8 @@ if [ -n "$VENV" ]; then
 fi 
 
 if [ -n "$REQUIREMENTS" ]; then
-  echo REQUIREMENTS non vuoto
-  for dir in $(echo "$formatted_folders" | tr ',' '\n'); do
+  echo REQUIREMENTS vuoto $REQUIREMENTS
+  for dir in $(echo "$REQUIREMENTS" | tr ',' '\n'); do
     if [ -d "$dir" ]; then
       if [ -f "$dir/requirements.txt" ]; then
         echo -e "Installing packages from $dir/requirements.txt\n"
@@ -30,8 +30,8 @@ if [ -n "$REQUIREMENTS" ]; then
     fi
   done
 else
-  echo REQUIREMENTS vuoto
-  for dir in $(echo "$REQUIREMENTS" | tr ',' '\n'); do
+  echo REQUIREMENTS non vuoto $REQUIREMENTS
+  for dir in $(echo "$formatted_folders" | tr ',' '\n'); do
     if [ -d "$dir" ]; then
       if [ -f "$dir/requirements.txt" ]; then
         echo -e "Installing packages from $dir/requirements.txt\n"
