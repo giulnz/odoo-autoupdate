@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x  # Attiva la stampa delle operazioni
+
 dir=$(dirname $0)
 cd $dir
 
