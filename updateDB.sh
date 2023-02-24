@@ -8,8 +8,10 @@ cd $dir
 # Import the configuration file
 . autoupdate.conf
 
+cd "$VENV/.."
+echo $PWD
+
 if [ -n "$VENV" ]; then
-  cd "$VENV/.."
   # Get into python virtualization
   source "$VENV/bin/activate"
 fi 
@@ -18,16 +20,28 @@ if [ -n "$REQUIREMENTS" ]; then
   for dir in $(echo "$formatted_folders" | tr ',' '\n'); do
     if [ -d "$dir" ]; then
       if [ -f "$dir/requirements.txt" ]; then
+        echo -e "Installing packages from $dir/requirements.txt\n"
         pip3 install -r "$dir/requirements.txt"
+        echo -e "\n"
+      else
+        echo -e "Skipping $dir (no requirements.txt found)\n"
       fi
+    else
+      echo -e "Skipping $dir (not a directory)\n"
     fi
   done
 else
   for dir in $(echo "$REQUIREMENTS" | tr ',' '\n'); do
     if [ -d "$dir" ]; then
       if [ -f "$dir/requirements.txt" ]; then
+        echo -e "Installing packages from $dir/requirements.txt\n"
         pip3 install -r "$dir/requirements.txt"
+        echo -e "\n"
+      else
+        echo -e "Skipping $dir (no requirements.txt found)\n"
       fi
+    else
+      echo -e "Skipping $dir (not a directory)\n"
     fi
   done
 fi
