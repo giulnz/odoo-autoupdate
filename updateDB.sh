@@ -49,6 +49,7 @@ else
 fi
 
 $ODOO_PATH/odoo-bin -c "$ODOO_CONF" -d "$DB_NAME" -u all --stop-after-init
+echo "Codice di uscita: $?"
 
 if [ -n "$VENV" ]; then
   deactivate
